@@ -8,6 +8,28 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid Opacity="0.7">
 
-        
+        <Grid.Background>
+            <ImageBrush ImageSource="C:\Users\infosys\source\repos\Uobei\Uobei\Main.jfif"/>
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="0.1*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <Button Grid.Row="0" Grid.Column="0" Content="握り" HorizontalAlignment="Center" VerticalAlignment="Center" Width="250" Height="120" FontSize="50" FontFamily="HGSSoeiKakupoptai" Background="#FFF7CAA3" Margin="74,22,72,22" Name="MainNigiri"/>
+        <Button Grid.Row="0" Grid.Column="1" Content="軍艦" Width="250" Height="120" FontSize="50" FontFamily="HGSSoeiKakupoptai" Background="#FFF7CAA3" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Name="MainGun"/>
+        <Button Grid.Row="1" Grid.Column="0" Content=" サイド&#10;メニュー" HorizontalAlignment="Center" VerticalAlignment="Center" Width="250" Height="120" FontSize="40" FontFamily="HGSSoeiKakupoptai" Background="#FFF7CAA3" Name="MainSaido"/>
+        <Button Grid.Row="1" Grid.Column="1" Content="デザート&#10;ドリンク" HorizontalAlignment="Center" VerticalAlignment="Center" Width="250" Height="120" FontSize="40" FontFamily="HGSSoeiKakupoptai" Background="#FFF7CAA3" Name="MainDezart"/>
+
+        <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Content="会計確認" HorizontalAlignment="Center" VerticalAlignment="Center" Width="250" Height="120" FontSize="40" FontFamily="HGSSoeiKakupoptai" Foreground="Red" Name="MainCash"/>
+
     </Grid>
 </Window>
