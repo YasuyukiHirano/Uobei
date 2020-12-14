@@ -55,12 +55,26 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Cash.xaml.cs">
+      <DependentUpon>Cash.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Check.xaml.cs">
+      <DependentUpon>Check.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Dezart.xaml.cs">
       <DependentUpon>Dezart.xaml</DependentUpon>
     </Compile>
     <Compile Include="Saido.xaml.cs">
       <DependentUpon>Saido.xaml</DependentUpon>
     </Compile>
+    <Page Include="Cash.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Check.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Dezart.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -68,6 +82,7 @@
     <Page Include="Gunkan.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -80,6 +95,7 @@
     </Compile>
     <Compile Include="Gunkan.xaml.cs">
       <DependentUpon>Gunkan.xaml</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -89,6 +105,7 @@
     <Page Include="Nigiri.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Page>
     <Page Include="Saido.xaml">
       <SubType>Designer</SubType>
@@ -98,6 +115,7 @@
   <ItemGroup>
     <Compile Include="Nigiri.xaml.cs">
       <DependentUpon>Nigiri.xaml</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -125,10 +143,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="anpan.jfif">
+    <Content Include="anpan.jfif" />
+    <Content Include="Main.jfif">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Main.jfif">
+    <Content Include="Menu.jfif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Menu2.jfif">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
