@@ -20,9 +20,15 @@ namespace Uobei
     /// </summary>
     public partial class MainWindow : Window
     {
+
         public MainWindow()
         {
             InitializeComponent();
+
+            Uri uri = new Uri("/Top.xaml", UriKind.Relative);
+            frame.Source = uri;
         }
+
+
     }
 }

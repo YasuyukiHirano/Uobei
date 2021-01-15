@@ -1,57 +1,32 @@
-﻿<Window x:Class="Uobei.Check"
+﻿<Page x:Class="Uobei.Cash"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Uobei"
         mc:Ignorable="d"
-        Title="Check" Height="450" Width="800">
+        Title="Cash" Height="450" Width="800">
     <Grid>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
             <RowDefinition Height="4*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1*"/>
-        </Grid.ColumnDefinitions>
-
         <Grid.Background>
-            <ImageBrush ImageSource="C:\Users\infosys\source\repos\Uobei\Uobei\Menu2.jfif"/>
+            <ImageBrush ImageSource="C:\Users\infosys\source\repos\Uobei\Uobei\Anpan.jfif"/>
         </Grid.Background>
 
+        <Button Grid.Row="0" Content="お会計" FontSize="35" FontFamily="HGSSoeiKakupoptai" Margin="10,54,10,80" Name="cash" Background="#FFF94230" Width="200" Height="170" HorizontalAlignment="Right" Foreground="White" Click="Cash_Click"/>
+        <Button Grid.Row="1" Content="戻る" HorizontalAlignment="Right" VerticalAlignment="Center" Width="100" Height="70" FontSize="25" FontFamily="HGSSoeiKakupoptai" Name="CashBack" Background="#FFA542DE" Foreground="White" Margin="0,7,53,7" Click="CashBack_Click"/>
 
-        <Button Grid.Column="0" Grid.Row="0" Content="握り" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="50" Background="#FFF7CAA3" FontSize="25" FontFamily="HGSSoeiKakupoptai" Name="DezartNigiri" />
-        <Button Grid.Column="1" Grid.Row="0" Content="軍艦" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="50" Background="#FFF7CAA3" FontSize="25" FontFamily="HGSSoeiKakupoptai" Name="DezartGun"/>
-        <Button Grid.Column="2" Grid.Row="0" Content=" サイド&#10;メニュー" HorizontalAlignment="Center" VerticalAlignment="Center" Width="110" Height="50" Background="#FFF7CAA3" FontSize="20" FontFamily="HGSSoeiKakupoptai" Name="DezartSaido"/>
-        <Button Grid.Column="3" Grid.Row="0" Content="デザート&#10;ドリンク" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="50" Background="#FFF7CAA3" FontSize="20" FontFamily="HGSSoeiKakupoptai" Name="DezartDezart"/>
+        <DataGrid HorizontalAlignment="Left" Height="315" Margin="10,10,0,0" VerticalAlignment="Top" Width="551"/>
 
-        <Button Grid.Column="3" Grid.Row="2" Content="TOPへ" HorizontalAlignment="Center" VerticalAlignment="Center" Width="110" Height="50" FontSize="25" FontFamily="HGSSoeiKakupoptai" Name="DezartBack" Background="White" Foreground="Red" Margin="49,10,39,10"/>
+        <Label Grid.Row="1" VerticalAlignment="Center" x:Name="goukei" Content="合計金額" Width="133" Height="50" FontSize="30" HorizontalAlignment="Center" Margin="272,13,387,21" Background="White"/>
+        <Label Grid.Row="1" VerticalAlignment="Center" x:Name="Number" Width="114" Height="50" FontSize="30" HorizontalAlignment="Center" Margin="405,13,273,21" Background="Black" Foreground="White"/>
+        <Label Grid.Row="1" VerticalAlignment="Center" x:Name="en" Content="円" Width="42" Height="50" FontSize="30" HorizontalAlignment="Center" Margin="519,13,231,21" Background="White"/>
 
-        <ListBox HorizontalAlignment="Left" Height="207" Grid.Row="1" VerticalAlignment="Top" Width="400" Grid.ColumnSpan="3" Margin="49,12,0,0" Background="White"/>
 
-        <Label Grid.Row="1" VerticalAlignment="Top" x:Name="count1" Content="1" Width="30" Height="30" FontSize="15" HorizontalAlignment="Center" Margin="19,12,149,0" Background="White" HorizontalContentAlignment="Center"/>
-        <Label Grid.Row="1" VerticalAlignment="Center" x:Name="count2" Content="2" Width="30" Height="30" FontSize="15" HorizontalAlignment="Center" Margin="19,70,149,179" Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Stretch"/>
-        <Label Grid.Row="1" VerticalAlignment="Center" x:Name="count3" Content="3" Width="30" Height="30" FontSize="15" HorizontalAlignment="Center" Margin="19,133,149,116" Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Stretch"/>
-        <Label Grid.Row="1" VerticalAlignment="Center" x:Name="count4" Content="4" Width="30" Height="30" FontSize="15" HorizontalAlignment="Center" Margin="19,189,149,60" Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Stretch"/>
-        <Label Grid.Row="1" VerticalAlignment="Center" x:Name="count5" Content="合計" Width="95" Height="39" FontSize="25" Margin="103,219,0,21" RenderTransformOrigin="0.567,1.967" Grid.Column="1" Background="White" HorizontalAlignment="Center" HorizontalContentAlignment="Center"/>
-        <Label Grid.Row="1" VerticalAlignment="Center" x:Name="count6" Content="0" Width="57" Height="39" FontSize="25" HorizontalAlignment="Center" Margin="0,219,141,21" RenderTransformOrigin="0.567,1.967" Grid.Column="2" Background="White" HorizontalContentAlignment="Center"/>
-        <Label Grid.Row="2" VerticalAlignment="Center" x:Name="count7" Content="一度に4皿まで注文できます。" Width="367" Height="50" FontSize="30" HorizontalAlignment="Center" Margin="107,10,120,10" Grid.ColumnSpan="3" Background="White"/>
-
-        <Button Grid.Column="2" Grid.Row="1" Content="－" FontSize="26" Height="30" Width="30" FontFamily="HGSSoeiKakupoptai" Margin="76,12,92,237" Name="Dec1" Background="Red" Foreground="White"/>
-        <Button Grid.Column="2" Grid.Row="1" Content="＋" FontSize="26" Height="30" Width="30" FontFamily="HGSSoeiKakupoptai" Margin="124,12,44,237" Name="Inc1" Background="Red" Foreground="White"/>
-        <Button Grid.Column="2" Grid.Row="1" Content="－" FontSize="26" Height="30" Width="30" FontFamily="HGSSoeiKakupoptai" Margin="76,70,92,179" Name="Dec2" Background="Red" Foreground="White"/>
-        <Button Grid.Column="2" Grid.Row="1" Content="＋" FontSize="26" Height="30" Width="30" FontFamily="HGSSoeiKakupoptai" Margin="124,70,44,179" Name="Inc2" Background="Red" Foreground="White"/>
-        <Button Grid.Column="2" Grid.Row="1" Content="－" FontSize="26" Height="30" Width="30" FontFamily="HGSSoeiKakupoptai" Margin="76,130,92,119" Name="Dec3" Background="Red" Foreground="White" HorizontalContentAlignment="Left"/>
-        <Button Grid.Column="2" Grid.Row="1" Content="＋" FontSize="26" Height="30" Width="30" FontFamily="HGSSoeiKakupoptai" Margin="124,130,44,119" Name="Inc3" Background="Red" Foreground="White"/>
-        <Button Grid.Column="2" Grid.Row="1" Content="－" FontSize="26" Height="30" Width="30" FontFamily="HGSSoeiKakupoptai" Margin="76,189,92,60" Name="Dec4" RenderTransformOrigin="0.533,1" Background="Red" Foreground="White"/>
-        <Button Grid.Column="2" Grid.Row="1" Content="＋" FontSize="26" Height="30" Width="30" FontFamily="HGSSoeiKakupoptai" Margin="124,189,44,60" Name="Inc4" RenderTransformOrigin="0.733,5" Background="Red" Foreground="White"/>
-        <Button Grid.Column="3" Grid.Row="1" Content="注文する" FontSize="35" FontFamily="HGSSoeiKakupoptai" Margin="10,54,10,80" Name="Chumon" Background="#FFF7F74D"/>
 
     </Grid>
-</Window>
+</Page>

@@ -10,55 +10,56 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Uobei
 {
     /// <summary>
-    /// Check.xaml の相互作用ロジック
+    /// Top.xaml の相互作用ロジック
     /// </summary>
-    public partial class Check : Page
+    public partial class Top : Page
     {
-        public Check()
+        public Top()
         {
             InitializeComponent();
         }
 
         #region ボタン編集
 
-        //会計確認から握りへ
-        private void CheckNigiri_Click(object sender, RoutedEventArgs e)
+        //握りボタン
+        private void MainNigiri_Click(object sender, RoutedEventArgs e)
         {
             var nigiri = new Nigiri();
             NavigationService.Navigate(nigiri);
         }
 
-        //会計確認から軍艦へ
-        private void CheckGun_Click(object sender, RoutedEventArgs e)
+        //軍艦ボタン
+        private void MainGun_Click(object sender, RoutedEventArgs e)
         {
             var gunkan = new Gunkan();
             NavigationService.Navigate(gunkan);
         }
 
-        //会計確認からサイドへ
-        private void CheckSaido_Click(object sender, RoutedEventArgs e)
+        //サイドメニューボタン
+        private void MainSaido_Click(object sender, RoutedEventArgs e)
         {
             var saido = new Saido();
             NavigationService.Navigate(saido);
         }
 
-        //会計確認からデザートへ
-        private void CheckDezart_Click(object sender, RoutedEventArgs e)
+        //デザートボタン
+        private void MainDezart_Click(object sender, RoutedEventArgs e)
         {
             var dezart = new Dezart();
             NavigationService.Navigate(dezart);
         }
 
-        //会計確認からトップへ
-        private void CheckTop_Click(object sender, RoutedEventArgs e)
+        //会計確認ボタン
+        private void MainCash_Click(object sender, RoutedEventArgs e)
         {
-            var top = new Top();
-            NavigationService.Navigate(top);
+            var cash = new Cash();
+            NavigationService.Navigate(cash);
         }
         #endregion
     }

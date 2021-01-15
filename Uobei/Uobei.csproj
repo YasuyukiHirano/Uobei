@@ -55,11 +55,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Cash.xaml.cs">
-      <DependentUpon>Cash.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Check.xaml.cs">
       <DependentUpon>Check.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Cash.xaml.cs">
+      <DependentUpon>Cash.xaml</DependentUpon>
     </Compile>
     <Compile Include="Dezart.xaml.cs">
       <DependentUpon>Dezart.xaml</DependentUpon>
@@ -67,11 +67,14 @@
     <Compile Include="Saido.xaml.cs">
       <DependentUpon>Saido.xaml</DependentUpon>
     </Compile>
-    <Page Include="Cash.xaml">
+    <Compile Include="Top.xaml.cs">
+      <DependentUpon>Top.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Check.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Check.xaml">
+    <Page Include="Cash.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -108,6 +111,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Page>
     <Page Include="Saido.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Top.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

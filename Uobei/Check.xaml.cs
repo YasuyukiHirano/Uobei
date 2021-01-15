@@ -15,13 +15,43 @@ using System.Windows.Shapes;
 namespace Uobei
 {
     /// <summary>
-    /// Check.xaml の相互作用ロジック
+    /// Cash.xaml の相互作用ロジック
     /// </summary>
-    public partial class Check : Window
+    public partial class Cash : Page
     {
-        public Check()
+        public Cash()
         {
             InitializeComponent();
+        }
+
+        //ひとつ前に戻る
+        private void CashBack_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.NavigationService.CanGoBack)
+            {
+                this.NavigationService.GoBack();
+            }
+        }
+
+        //会計ボタン
+        private void Cash_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("「ご来店ありがとうございました。またお越しくださいませ。」"
+            ,"精算済み",MessageBoxButton.YesNo);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                Application.Current.Shutdown();
+            }
+            else if (result == MessageBoxResult.No)
+            {
+                for (int i = 0; i < (int)MessageBoxResult.Yes; i++)
+                {
+                    MessageBox.Show("また来てくださいね!!!!!!!!!!!!", "エラー"
+                        , MessageBoxButton.YesNo, MessageBoxImage.Error);
+                }
+            }
+                Application.Current.Shutdown();     
         }
     }
 }
