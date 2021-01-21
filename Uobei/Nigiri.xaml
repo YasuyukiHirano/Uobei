@@ -5,8 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Uobei"
         mc:Ignorable="d"
-        Title="Nigiri" Height="450" Width="800">
-    <Grid>
+        Title="Nigiri" Height="450" Width="800" Loaded="Window_Loaded">
+    <Page.Resources>
+        <local:SushiOrderDBDataSet x:Key="sushiOrderDBDataSet"/>
+        <CollectionViewSource x:Key="商品テーブルViewSource" Source="{Binding 商品テーブル, Source={StaticResource sushiOrderDBDataSet}}"/>
+    </Page.Resources>
+    <Grid DataContext="{StaticResource 商品テーブルViewSource}" Loaded="Grid_Loaded">
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="2*"/>
@@ -24,7 +28,7 @@
         <Grid.Background>
             <ImageBrush ImageSource="C:\Users\infosys\source\repos\Uobei\Uobei\Menu.jfif"/>
         </Grid.Background>
-                  
+
         <Rectangle Grid.Row="1" Grid.Column="0" Fill="Black" />
         <Rectangle Grid.Row="1" Grid.Column="1" Fill="Black" />
         <Rectangle Grid.Row="1" Grid.Column="2" Fill="Black" />
@@ -33,8 +37,6 @@
         <Rectangle Grid.Row="2" Grid.Column="2" Fill="Black" />
         <Rectangle Grid.Row="1" Grid.Column="3" Fill="#FFEE3232" />
         <Rectangle Grid.Row="2" Grid.Column="3" Fill="Red" />
-        
-
 
 
 
@@ -52,8 +54,29 @@
         <Button Grid.Column="3" Grid.Row="1" Content="－" FontSize="26" Height="30" Width="30" FontFamily="HGSSoeiKakupoptai" Margin="83,23,85,87" Name="Dec" RenderTransformOrigin="0.5,-0.2"/>
         <Button Grid.Column="3" Grid.Row="1" Content="＋" FontSize="26" Height="30" Width="30" FontFamily="HGSSoeiKakupoptai" Margin="128,23,40,87" Name="Inc"/>
 
-        <ListBox Grid.Row="1" Grid.Column="3" Width="150" Height="200" Margin="0,58,24,21.5" Grid.RowSpan="2" HorizontalAlignment="Right" Name="ListBox1"/>
-        <ListBox Grid.Row="1" Grid.Column="3" Width="150" Height="200" Margin="0,58,24,21.5" Grid.RowSpan="2" HorizontalAlignment="Right" Name="ListBox2"/>
+        <ListBox Grid.Row="1" Grid.Column="3" Width="99" Height="200" Margin="0,70,74,35" Grid.RowSpan="2" HorizontalAlignment="Right" Name="ListBox1"/>
+        <ListBox Grid.Row="1" Grid.Column="3" Width="49" Margin="0,70,25,35" Grid.RowSpan="2" HorizontalAlignment="Right" Name="ListBox2"/>
+
+        <!--写真ボタン-->
+        <Button Grid.Column="0" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Width="200" Height="150" Background="White" Command="{Binding}" Click="Button_Click">
+            <Image Source="\\172.16.42.1\学生共有\Uobei\商品情報\maguro.jpeg" Width="200"/>
+        </Button>
+        <Button Grid.Column="1" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Width="200" Height="150" Background="White" Command="{Binding}" Click="Button_Click_1">
+            <Image Source="\\172.16.42.1\学生共有\Uobei\商品情報\samon.jpeg" Width="146"/>
+        </Button>
+        <Button Grid.Column="2" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Width="200" Height="150" Background="White" Command="{Binding}" Click="Button_Click_2">
+            <Image Source="\\172.16.42.1\学生共有\Uobei\商品情報\hamati.jpeg" Width="161"/>
+        </Button>
+        <Button Grid.Column="0" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" Width="200" Height="150" Background="White" Command="{Binding}" Click="Button_Click_3">
+            <Image Source="\\172.16.42.1\学生共有\Uobei\商品情報\tubu.jpeg" Width="161"/>
+        </Button>
+        <Button Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" Width="200" Height="150" Background="White" Command="{Binding}" Click="Button_Click_4">
+            <Image Source="\\172.16.42.1\学生共有\Uobei\商品情報\azi.jpeg" Width="156"/>
+        </Button>
+        <Button Grid.Column="2" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" Width="200" Height="150" Background="White" Command="{Binding}" Click="Button_Click_5">
+            <Image Source="\\172.16.42.1\学生共有\Uobei\商品情報\hirame.jpeg" Width="157"/>
+        </Button>
+
 
     </Grid>
 </Page>

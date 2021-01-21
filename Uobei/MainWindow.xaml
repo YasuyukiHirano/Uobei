@@ -5,11 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Uobei"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
+    <Window.Resources>
+        <local:SushiOrderDBDataSet x:Key="sushiOrderDBDataSet"/>
+        <CollectionViewSource x:Key="商品テーブルViewSource" Source="{Binding 商品テーブル, Source={StaticResource sushiOrderDBDataSet}}"/>
+    </Window.Resources>
 
-    <Grid >
+    <Grid DataContext="{StaticResource 商品テーブルViewSource}" >
 
-        <Frame Name="frame" NavigationUIVisibility="Hidden"/>
-        
+        <Frame Name="frame" NavigationUIVisibility="Hidden" Source="{Binding}" />
+
     </Grid>
 </Window>

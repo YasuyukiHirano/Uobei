@@ -62,5 +62,8 @@ namespace Uobei
             NavigationService.Navigate(cash);
         }
         #endregion
+
+
+       
     }
 }
