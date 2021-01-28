@@ -108,7 +108,8 @@ namespace Uobei
         }
         #endregion
 
-        #region まぐろ注文
+        #region にぎり
+            #region まぐろ注文
         private void Button_Click(object sender, RoutedEventArgs e)
         {           
             
@@ -119,8 +120,7 @@ namespace Uobei
                     itemCnt1++;
                     ListBox1.Items.Add("まぐろ");
                     ListBox2.Items.Add(itemCnt1);
-                    itemCnt++;
-                    
+                    itemCnt++;                    
                 }
                 else if (ListBox1.Items.Contains("まぐろ") == true)
                 {
@@ -142,7 +142,7 @@ namespace Uobei
         }
         #endregion
 
-        #region サーモン注文
+            #region サーモン注文
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             if (itemCnt < 4)
@@ -174,7 +174,7 @@ namespace Uobei
         }
         #endregion
 
-        #region はまち注文
+            #region はまち注文
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             if (itemCnt < 4)
@@ -207,7 +207,7 @@ namespace Uobei
 
         #endregion
 
-        #region つぶ貝注文
+            #region つぶ貝注文
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
             if (itemCnt < 4)
@@ -240,7 +240,7 @@ namespace Uobei
 
         #endregion
 
-        #region あじ注文
+            #region あじ注文
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
             if (itemCnt < 4)
@@ -272,7 +272,7 @@ namespace Uobei
         }
         #endregion
 
-        #region 平目注文
+            #region 平目注文
         private void Button_Click_5(object sender, RoutedEventArgs e)
         {
             if (itemCnt < 4)
@@ -304,23 +304,23 @@ namespace Uobei
         }
         #endregion
 
-        #region +ボタン        
+            #region +ボタン        
         private void Inc_Click(object sender, RoutedEventArgs e)
         {
-            //ListBox1.Items.Add(ListBox1.SelectedIndex);
-            //ListBox2.Items.Add(ListBox2.SelectedIndex);
-            //ListBox1.Items.Remove("まぐろ");
-            //ListBox2.Items.Remove(itemCnt1);
-            //itemCnt1++;
-            //ListBox1.Items.Add("まぐろ");
-            //ListBox2.Items.Add(itemCnt1);
-            //itemCnt++;
+            ListBox1.Items.Add(ListBox1.SelectedIndex);
+            ListBox2.Items.Add(ListBox2.SelectedIndex);           
+            ListBox1.Items.Remove("まぐろ");
+            ListBox2.Items.Remove(itemCnt1);
+            itemCnt1++;
+            ListBox1.Items.Add("まぐろ");
+            ListBox2.Items.Add(itemCnt1);
+            itemCnt++;
         }
         #endregion
 
-        #region -ボタン
+            #region -ボタン
         private void Dec_Click(object sender, RoutedEventArgs e)
-        {
+        {            
             //ListBox1.Items.RemoveAt(ListBox1.SelectedIndex);
             //ListBox2.Items.RemoveAt(ListBox2.SelectedIndex);
             //itemCnt--;
@@ -331,6 +331,7 @@ namespace Uobei
             //itemCnt5--;
             //itemCnt6--;
         }
+        #endregion
         #endregion
     }
 }

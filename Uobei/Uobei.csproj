@@ -67,7 +67,7 @@
     <Compile Include="Dezart.xaml.cs">
       <DependentUpon>Dezart.xaml</DependentUpon>
     </Compile>
-    <Compile Include="OrderList.cs" />
+    <Compile Include="Order.cs" />
     <Compile Include="Saido.xaml.cs">
       <DependentUpon>Saido.xaml</DependentUpon>
     </Compile>

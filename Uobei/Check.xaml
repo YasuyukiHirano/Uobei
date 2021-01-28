@@ -27,7 +27,7 @@
 
 
         <Label Grid.Row="1" VerticalAlignment="Center" x:Name="goukei" Content="合計金額" Width="133" Height="50" FontSize="30" HorizontalAlignment="Center" Margin="272,13,387,21" Background="White"/>
-        <Label Grid.Row="1" VerticalAlignment="Center" x:Name="Number" Width="114" Height="50" FontSize="30" HorizontalAlignment="Center" Margin="405,13,273,21" Background="Black" Foreground="White" ContentStringFormat="###,###"/>
+        <Label Grid.Row="1" VerticalAlignment="Center" x:Name="Number" Width="114" Height="50" FontSize="30" HorizontalAlignment="Center" Margin="405,13,273,21" Background="Black" Foreground="White" ContentStringFormat="###,###" HorizontalContentAlignment="Right"/>
         <Label Grid.Row="1" VerticalAlignment="Center" x:Name="en" Content="円" Width="42" Height="50" FontSize="30" HorizontalAlignment="Center" Margin="519,13,231,21" Background="White"/>
         
         <DataGrid x:Name="OrderListDataGrid" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="10,10,235,0" RowDetailsVisibilityMode="VisibleWhenSelected" AutoGenerateColumns="False" Loaded="OrderListDataGrid_Loaded">

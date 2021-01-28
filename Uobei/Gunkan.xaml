@@ -54,7 +54,7 @@
         <Button Grid.Column="4" Grid.Row="1" Content="－" FontSize="26" Height="30" Width="30" FontFamily="HGSSoeiKakupoptai" Margin="82,27,88,93" Name="Dec" RenderTransformOrigin="0.6,0.167"/>
         <Button Grid.Column="4" Grid.Row="1" Content="＋" FontSize="26" Height="30" Width="30" FontFamily="HGSSoeiKakupoptai" Margin="130,27,40,93" Name="Inc"/>
 
-        <ListBox Grid.Row="1" Grid.Column="4" Width="99" Height="200" Margin="0,70,74,30" Grid.RowSpan="2" HorizontalAlignment="Right" Name="ListBox3" FontSize="25"/>
+        <ListBox Grid.Row="1" Grid.Column="4" Width="99" Height="200" Margin="0,70,74,35" Grid.RowSpan="2" HorizontalAlignment="Right" Name="ListBox3" FontSize="25"/>
         <ListBox Grid.Row="1" Grid.Column="4" Width="49" Margin="0,70,25,35" Grid.RowSpan="2" HorizontalAlignment="Right" Name="ListBox4" FontSize="25"/>
 
         <!--写真ボタン-->

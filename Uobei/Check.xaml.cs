@@ -19,15 +19,11 @@ namespace Uobei
     /// Cash.xaml の相互作用ロジック
     /// </summary>
     public partial class Cash : Page
-
-
     {
         public Cash()
         {
             InitializeComponent();
-        }
-
-        int sum = 0;
+        }        
 
         #region ひとつ前に戻る
         private void CashBack_Click(object sender, RoutedEventArgs e)
@@ -71,10 +67,9 @@ namespace Uobei
             System.Windows.Data.CollectionViewSource 注文情報ViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("注文情報ViewSource")));
             注文情報ViewSource.View.MoveCurrentToFirst();
 
-            //合計金額            
-           Number.Content = sushiOrderDBDataSet.注文情報.Select(n => n.Sum_price).Sum();
-
-            #endregion
+            //合計金額
+            Number.Content = sushiOrderDBDataSet.注文情報.Select(n => n.Sum_price).Sum();          
         }
+        #endregion
     }
 }
