@@ -1,0 +1,30 @@
+﻿<Window x:Class="Uobei.DB"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Uobei"
+        mc:Ignorable="d"
+        Title="DB" Height="450" Width="800" Loaded="Window_Loaded">
+    <Window.Resources>
+        <local:SushiOrderDBDataSet x:Key="sushiOrderDBDataSet"/>
+        <CollectionViewSource x:Key="注文情報ViewSource" Source="{Binding 注文情報, Source={StaticResource sushiOrderDBDataSet}}"/>
+        <CollectionViewSource x:Key="商品テーブルViewSource" Source="{Binding 商品テーブル, Source={StaticResource sushiOrderDBDataSet}}"/>
+    </Window.Resources>
+    <Grid DataContext="{StaticResource 注文情報ViewSource}">
+        <DataGrid x:Name="注文情報DataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="353,75,39,144" RowDetailsVisibilityMode="VisibleWhenSelected">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="iDColumn" Binding="{Binding ID}" Header="ID" IsReadOnly="True" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="product_idColumn" Binding="{Binding Product_id}" Header="Product id" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="starttimeColumn" Binding="{Binding Starttime}" Header="Starttime" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="orderColumn" Binding="{Binding Order}" Header="Order" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="offerColumn" Binding="{Binding Offer}" Header="Offer" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="offerTimeColumn" Binding="{Binding OfferTime}" Header="Offer Time" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="product_nameColumn" Binding="{Binding Product_name}" Header="Product name" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="quantityColumn" Binding="{Binding Quantity}" Header="Quantity" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="sum_priceColumn" Binding="{Binding Sum_price}" Header="Sum price" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="statusColumn" Binding="{Binding Status}" Header="Status" Width="SizeToHeader"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

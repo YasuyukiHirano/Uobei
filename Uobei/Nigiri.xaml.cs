@@ -111,6 +111,7 @@ namespace Uobei
         #region まぐろ注文
         private void Button_Click(object sender, RoutedEventArgs e)
         {           
+            
             if (itemCnt < 4)
             {
                 if (ListBox1.Items.Contains("まぐろ") != true)
@@ -119,6 +120,7 @@ namespace Uobei
                     ListBox1.Items.Add("まぐろ");
                     ListBox2.Items.Add(itemCnt1);
                     itemCnt++;
+                    
                 }
                 else if (ListBox1.Items.Contains("まぐろ") == true)
                 {
@@ -299,6 +301,35 @@ namespace Uobei
                 var check = new Check();
                 NavigationService.Navigate(check);
             }
+        }
+        #endregion
+
+        #region +ボタン        
+        private void Inc_Click(object sender, RoutedEventArgs e)
+        {
+            //ListBox1.Items.Add(ListBox1.SelectedIndex);
+            //ListBox2.Items.Add(ListBox2.SelectedIndex);
+            //ListBox1.Items.Remove("まぐろ");
+            //ListBox2.Items.Remove(itemCnt1);
+            //itemCnt1++;
+            //ListBox1.Items.Add("まぐろ");
+            //ListBox2.Items.Add(itemCnt1);
+            //itemCnt++;
+        }
+        #endregion
+
+        #region -ボタン
+        private void Dec_Click(object sender, RoutedEventArgs e)
+        {
+            //ListBox1.Items.RemoveAt(ListBox1.SelectedIndex);
+            //ListBox2.Items.RemoveAt(ListBox2.SelectedIndex);
+            //itemCnt--;
+            //itemCnt1--;
+            //itemCnt2--;
+            //itemCnt3--;
+            //itemCnt4--;
+            //itemCnt5--;
+            //itemCnt6--;
         }
         #endregion
     }

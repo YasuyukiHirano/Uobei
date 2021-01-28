@@ -666,6 +666,8 @@ namespace Uobei {
             
             private global::System.Data.DataColumn columnOfferTime;
             
+            private global::System.Data.DataColumn columnProduct_name;
+            
             private global::System.Data.DataColumn columnQuantity;
             
             private global::System.Data.DataColumn columnSum_price;
@@ -755,6 +757,14 @@ namespace Uobei {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Product_nameColumn {
+                get {
+                    return this.columnProduct_name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn QuantityColumn {
                 get {
                     return this.columnQuantity;
@@ -814,7 +824,7 @@ namespace Uobei {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public 注文情報Row Add注文情報Row(int Product_id, System.TimeSpan Starttime, System.TimeSpan Order, System.TimeSpan Offer, System.TimeSpan OfferTime, int Quantity, int Sum_price, string Status) {
+            public 注文情報Row Add注文情報Row(int Product_id, System.TimeSpan Starttime, System.TimeSpan Order, System.TimeSpan Offer, System.TimeSpan OfferTime, string Product_name, int Quantity, int Sum_price, string Status) {
                 注文情報Row row注文情報Row = ((注文情報Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -823,6 +833,7 @@ namespace Uobei {
                         Order,
                         Offer,
                         OfferTime,
+                        Product_name,
                         Quantity,
                         Sum_price,
                         Status};
@@ -861,6 +872,7 @@ namespace Uobei {
                 this.columnOrder = base.Columns["Order"];
                 this.columnOffer = base.Columns["Offer"];
                 this.columnOfferTime = base.Columns["OfferTime"];
+                this.columnProduct_name = base.Columns["Product_name"];
                 this.columnQuantity = base.Columns["Quantity"];
                 this.columnSum_price = base.Columns["Sum_price"];
                 this.columnStatus = base.Columns["Status"];
@@ -881,6 +893,8 @@ namespace Uobei {
                 base.Columns.Add(this.columnOffer);
                 this.columnOfferTime = new global::System.Data.DataColumn("OfferTime", typeof(global::System.TimeSpan), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnOfferTime);
+                this.columnProduct_name = new global::System.Data.DataColumn("Product_name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProduct_name);
                 this.columnQuantity = new global::System.Data.DataColumn("Quantity", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnQuantity);
                 this.columnSum_price = new global::System.Data.DataColumn("Sum_price", typeof(int), null, global::System.Data.MappingType.Element);
@@ -895,6 +909,7 @@ namespace Uobei {
                 this.columnID.AllowDBNull = false;
                 this.columnID.ReadOnly = true;
                 this.columnID.Unique = true;
+                this.columnProduct_name.MaxLength = 30;
                 this.columnStatus.MaxLength = 1;
             }
             
@@ -1227,6 +1242,22 @@ namespace Uobei {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Product_name {
+                get {
+                    try {
+                        return ((string)(this[this.table注文情報.Product_nameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'注文情報\' にある列 \'Product_name\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.table注文情報.Product_nameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int Quantity {
                 get {
                     try {
@@ -1331,6 +1362,18 @@ namespace Uobei {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetOfferTimeNull() {
                 this[this.table注文情報.OfferTimeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsProduct_nameNull() {
+                return this.IsNull(this.table注文情報.Product_nameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetProduct_nameNull() {
+                this[this.table注文情報.Product_nameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1988,13 +2031,14 @@ SELECT Product_id, Type, Name, Price, Picture, Status FROM 商品テーブル WH
             tableMapping.ColumnMappings.Add("Order", "Order");
             tableMapping.ColumnMappings.Add("Offer", "Offer");
             tableMapping.ColumnMappings.Add("OfferTime", "OfferTime");
+            tableMapping.ColumnMappings.Add("Product_name", "Product_name");
             tableMapping.ColumnMappings.Add("Quantity", "Quantity");
             tableMapping.ColumnMappings.Add("Sum_price", "Sum_price");
             tableMapping.ColumnMappings.Add("Status", "Status");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[注文情報] WHERE (([ID] = @Original_ID) AND ((@IsNull_Product_id = 1 AND [Product_id] IS NULL) OR ([Product_id] = @Original_Product_id)) AND ((@IsNull_Starttime = 1 AND [Starttime] IS NULL) OR ([Starttime] = @Original_Starttime)) AND ((@IsNull_Order = 1 AND [Order] IS NULL) OR ([Order] = @Original_Order)) AND ((@IsNull_Offer = 1 AND [Offer] IS NULL) OR ([Offer] = @Original_Offer)) AND ((@IsNull_OfferTime = 1 AND [OfferTime] IS NULL) OR ([OfferTime] = @Original_OfferTime)) AND ((@IsNull_Quantity = 1 AND [Quantity] IS NULL) OR ([Quantity] = @Original_Quantity)) AND ((@IsNull_Sum_price = 1 AND [Sum_price] IS NULL) OR ([Sum_price] = @Original_Sum_price)) AND ((@IsNull_Status = 1 AND [Status] IS NULL) OR ([Status] = @Original_Status)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[注文情報] WHERE (([ID] = @Original_ID) AND ((@IsNull_Product_id = 1 AND [Product_id] IS NULL) OR ([Product_id] = @Original_Product_id)) AND ((@IsNull_Starttime = 1 AND [Starttime] IS NULL) OR ([Starttime] = @Original_Starttime)) AND ((@IsNull_Order = 1 AND [Order] IS NULL) OR ([Order] = @Original_Order)) AND ((@IsNull_Offer = 1 AND [Offer] IS NULL) OR ([Offer] = @Original_Offer)) AND ((@IsNull_OfferTime = 1 AND [OfferTime] IS NULL) OR ([OfferTime] = @Original_OfferTime)) AND ((@IsNull_Product_name = 1 AND [Product_name] IS NULL) OR ([Product_name] = @Original_Product_name)) AND ((@IsNull_Quantity = 1 AND [Quantity] IS NULL) OR ([Quantity] = @Original_Quantity)) AND ((@IsNull_Sum_price = 1 AND [Sum_price] IS NULL) OR ([Sum_price] = @Original_Sum_price)) AND ((@IsNull_Status = 1 AND [Status] IS NULL) OR ([Status] = @Original_Status)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Product_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Product_id", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -2007,6 +2051,8 @@ SELECT Product_id, Type, Name, Price, Picture, Status FROM 商品テーブル WH
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Offer", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Offer", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_OfferTime", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OfferTime", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OfferTime", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OfferTime", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Product_name", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Product_name", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Product_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Product_name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Quantity", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Quantity", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Quantity", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Quantity", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Sum_price", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Sum_price", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -2015,27 +2061,29 @@ SELECT Product_id, Type, Name, Price, Picture, Status FROM 商品テーブル WH
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Status", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[注文情報] ([Product_id], [Starttime], [Order], [Offer], [OfferTime], [Quantity], [Sum_price], [Status]) VALUES (@Product_id, @Starttime, @Order, @Offer, @OfferTime, @Quantity, @Sum_price, @Status);
-SELECT ID, Product_id, Starttime, [Order], Offer, OfferTime, Quantity, Sum_price, Status FROM 注文情報 WHERE (ID = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[注文情報] ([Product_id], [Starttime], [Order], [Offer], [OfferTime], [Product_name], [Quantity], [Sum_price], [Status]) VALUES (@Product_id, @Starttime, @Order, @Offer, @OfferTime, @Product_name, @Quantity, @Sum_price, @Status);
+SELECT ID, Product_id, Starttime, [Order], Offer, OfferTime, Product_name, Quantity, Sum_price, Status FROM 注文情報 WHERE (ID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Product_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Product_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Starttime", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Starttime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Order", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Order", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Offer", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Offer", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OfferTime", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OfferTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Product_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Product_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Quantity", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Quantity", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Sum_price", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Sum_price", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Status", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[注文情報] SET [Product_id] = @Product_id, [Starttime] = @Starttime, [Order] = @Order, [Offer] = @Offer, [OfferTime] = @OfferTime, [Quantity] = @Quantity, [Sum_price] = @Sum_price, [Status] = @Status WHERE (([ID] = @Original_ID) AND ((@IsNull_Product_id = 1 AND [Product_id] IS NULL) OR ([Product_id] = @Original_Product_id)) AND ((@IsNull_Starttime = 1 AND [Starttime] IS NULL) OR ([Starttime] = @Original_Starttime)) AND ((@IsNull_Order = 1 AND [Order] IS NULL) OR ([Order] = @Original_Order)) AND ((@IsNull_Offer = 1 AND [Offer] IS NULL) OR ([Offer] = @Original_Offer)) AND ((@IsNull_OfferTime = 1 AND [OfferTime] IS NULL) OR ([OfferTime] = @Original_OfferTime)) AND ((@IsNull_Quantity = 1 AND [Quantity] IS NULL) OR ([Quantity] = @Original_Quantity)) AND ((@IsNull_Sum_price = 1 AND [Sum_price] IS NULL) OR ([Sum_price] = @Original_Sum_price)) AND ((@IsNull_Status = 1 AND [Status] IS NULL) OR ([Status] = @Original_Status)));
-SELECT ID, Product_id, Starttime, [Order], Offer, OfferTime, Quantity, Sum_price, Status FROM 注文情報 WHERE (ID = @ID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[注文情報] SET [Product_id] = @Product_id, [Starttime] = @Starttime, [Order] = @Order, [Offer] = @Offer, [OfferTime] = @OfferTime, [Product_name] = @Product_name, [Quantity] = @Quantity, [Sum_price] = @Sum_price, [Status] = @Status WHERE (([ID] = @Original_ID) AND ((@IsNull_Product_id = 1 AND [Product_id] IS NULL) OR ([Product_id] = @Original_Product_id)) AND ((@IsNull_Starttime = 1 AND [Starttime] IS NULL) OR ([Starttime] = @Original_Starttime)) AND ((@IsNull_Order = 1 AND [Order] IS NULL) OR ([Order] = @Original_Order)) AND ((@IsNull_Offer = 1 AND [Offer] IS NULL) OR ([Offer] = @Original_Offer)) AND ((@IsNull_OfferTime = 1 AND [OfferTime] IS NULL) OR ([OfferTime] = @Original_OfferTime)) AND ((@IsNull_Product_name = 1 AND [Product_name] IS NULL) OR ([Product_name] = @Original_Product_name)) AND ((@IsNull_Quantity = 1 AND [Quantity] IS NULL) OR ([Quantity] = @Original_Quantity)) AND ((@IsNull_Sum_price = 1 AND [Sum_price] IS NULL) OR ([Sum_price] = @Original_Sum_price)) AND ((@IsNull_Status = 1 AND [Status] IS NULL) OR ([Status] = @Original_Status)));
+SELECT ID, Product_id, Starttime, [Order], Offer, OfferTime, Product_name, Quantity, Sum_price, Status FROM 注文情報 WHERE (ID = @ID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Product_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Product_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Starttime", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Starttime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Order", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Order", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Offer", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Offer", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OfferTime", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OfferTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Product_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Product_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Quantity", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Quantity", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Sum_price", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Sum_price", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Status", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -2050,6 +2098,8 @@ SELECT ID, Product_id, Starttime, [Order], Offer, OfferTime, Quantity, Sum_price
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Offer", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Offer", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_OfferTime", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OfferTime", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OfferTime", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OfferTime", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Product_name", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Product_name", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Product_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Product_name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Quantity", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Quantity", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Quantity", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Quantity", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Sum_price", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Sum_price", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -2069,12 +2119,17 @@ SELECT ID, Product_id, Starttime, [Order], Offer, OfferTime, Quantity, Sum_price
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID, Product_id, Starttime, [Order], Offer, OfferTime, Quantity, Sum_price," +
-                " Status FROM dbo.注文情報";
+            this._commandCollection[0].CommandText = "SELECT ID, Product_id, Starttime, [Order], Offer, OfferTime, Product_name, Quanti" +
+                "ty, Sum_price, Status FROM dbo.注文情報";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT                      Sum_price\r\nFROM                         注文情報\r\nWHERE  " +
+                "                     (NOT (Sum_price IS NULL))";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2096,6 +2151,30 @@ SELECT ID, Product_id, Starttime, [Order], Offer, OfferTime, Quantity, Sum_price
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual SushiOrderDBDataSet.注文情報DataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            SushiOrderDBDataSet.注文情報DataTable dataTable = new SushiOrderDBDataSet.注文情報DataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int Sum_price(SushiOrderDBDataSet.注文情報DataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual SushiOrderDBDataSet.注文情報DataTable GetDataBy() {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
             SushiOrderDBDataSet.注文情報DataTable dataTable = new SushiOrderDBDataSet.注文情報DataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -2134,7 +2213,7 @@ SELECT ID, Product_id, Starttime, [Order], Offer, OfferTime, Quantity, Sum_price
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_ID, global::System.Nullable<int> Original_Product_id, global::System.Nullable<global::System.TimeSpan> Original_Starttime, global::System.Nullable<global::System.TimeSpan> Original_Order, global::System.Nullable<global::System.TimeSpan> Original_Offer, global::System.Nullable<global::System.TimeSpan> Original_OfferTime, global::System.Nullable<int> Original_Quantity, global::System.Nullable<int> Original_Sum_price, string Original_Status) {
+        public virtual int Delete(int Original_ID, global::System.Nullable<int> Original_Product_id, global::System.Nullable<global::System.TimeSpan> Original_Starttime, global::System.Nullable<global::System.TimeSpan> Original_Order, global::System.Nullable<global::System.TimeSpan> Original_Offer, global::System.Nullable<global::System.TimeSpan> Original_OfferTime, string Original_Product_name, global::System.Nullable<int> Original_Quantity, global::System.Nullable<int> Original_Sum_price, string Original_Status) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID));
             if ((Original_Product_id.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
@@ -2176,29 +2255,37 @@ SELECT ID, Product_id, Starttime, [Order], Offer, OfferTime, Quantity, Sum_price
                 this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
-            if ((Original_Quantity.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((int)(Original_Quantity.Value));
-            }
-            else {
+            if ((Original_Product_name == null)) {
                 this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
-            if ((Original_Sum_price.HasValue == true)) {
+            else {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(Original_Product_name));
+            }
+            if ((Original_Quantity.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((int)(Original_Sum_price.Value));
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((int)(Original_Quantity.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
-            if ((Original_Status == null)) {
+            if ((Original_Sum_price.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((int)(Original_Sum_price.Value));
+            }
+            else {
                 this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
+            if ((Original_Status == null)) {
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[18].Value = global::System.DBNull.Value;
+            }
             else {
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((string)(Original_Status));
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((string)(Original_Status));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -2220,7 +2307,7 @@ SELECT ID, Product_id, Starttime, [Order], Offer, OfferTime, Quantity, Sum_price
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<int> Product_id, global::System.Nullable<global::System.TimeSpan> Starttime, global::System.Nullable<global::System.TimeSpan> Order, global::System.Nullable<global::System.TimeSpan> Offer, global::System.Nullable<global::System.TimeSpan> OfferTime, global::System.Nullable<int> Quantity, global::System.Nullable<int> Sum_price, string Status) {
+        public virtual int Insert(global::System.Nullable<int> Product_id, global::System.Nullable<global::System.TimeSpan> Starttime, global::System.Nullable<global::System.TimeSpan> Order, global::System.Nullable<global::System.TimeSpan> Offer, global::System.Nullable<global::System.TimeSpan> OfferTime, string Product_name, global::System.Nullable<int> Quantity, global::System.Nullable<int> Sum_price, string Status) {
             if ((Product_id.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((int)(Product_id.Value));
             }
@@ -2251,23 +2338,29 @@ SELECT ID, Product_id, Starttime, [Order], Offer, OfferTime, Quantity, Sum_price
             else {
                 this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((Quantity.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((int)(Quantity.Value));
-            }
-            else {
+            if ((Product_name == null)) {
                 this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
-            if ((Sum_price.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((int)(Sum_price.Value));
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(Product_name));
+            }
+            if ((Quantity.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((int)(Quantity.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            if ((Status == null)) {
-                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+            if ((Sum_price.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((int)(Sum_price.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(Status));
+                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            if ((Status == null)) {
+                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(Status));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -2295,6 +2388,7 @@ SELECT ID, Product_id, Starttime, [Order], Offer, OfferTime, Quantity, Sum_price
                     global::System.Nullable<global::System.TimeSpan> Order, 
                     global::System.Nullable<global::System.TimeSpan> Offer, 
                     global::System.Nullable<global::System.TimeSpan> OfferTime, 
+                    string Product_name, 
                     global::System.Nullable<int> Quantity, 
                     global::System.Nullable<int> Sum_price, 
                     string Status, 
@@ -2304,6 +2398,7 @@ SELECT ID, Product_id, Starttime, [Order], Offer, OfferTime, Quantity, Sum_price
                     global::System.Nullable<global::System.TimeSpan> Original_Order, 
                     global::System.Nullable<global::System.TimeSpan> Original_Offer, 
                     global::System.Nullable<global::System.TimeSpan> Original_OfferTime, 
+                    string Original_Product_name, 
                     global::System.Nullable<int> Original_Quantity, 
                     global::System.Nullable<int> Original_Sum_price, 
                     string Original_Status, 
@@ -2338,90 +2433,104 @@ SELECT ID, Product_id, Starttime, [Order], Offer, OfferTime, Quantity, Sum_price
             else {
                 this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((Quantity.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Quantity.Value));
-            }
-            else {
+            if ((Product_name == null)) {
                 this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
-            if ((Sum_price.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Sum_price.Value));
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Product_name));
+            }
+            if ((Quantity.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Quantity.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            if ((Status == null)) {
+            if ((Sum_price.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Sum_price.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Status));
+            if ((Status == null)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_ID));
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Status));
+            }
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_ID));
             if ((Original_Product_id.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_Product_id.Value));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Original_Product_id.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             if ((Original_Starttime.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((System.TimeSpan)(Original_Starttime.Value));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((System.TimeSpan)(Original_Starttime.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
             if ((Original_Order.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((System.TimeSpan)(Original_Order.Value));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((System.TimeSpan)(Original_Order.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
             if ((Original_Offer.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((System.TimeSpan)(Original_Offer.Value));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((System.TimeSpan)(Original_Offer.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
             }
             if ((Original_OfferTime.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((System.TimeSpan)(Original_OfferTime.Value));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((System.TimeSpan)(Original_OfferTime.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Product_name == null)) {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_Product_name));
             }
             if ((Original_Quantity.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((int)(Original_Quantity.Value));
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((int)(Original_Quantity.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
             }
             if ((Original_Sum_price.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((int)(Original_Sum_price.Value));
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((int)(Original_Sum_price.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
             }
             if ((Original_Status == null)) {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((string)(Original_Status));
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((string)(Original_Status));
             }
-            this.Adapter.UpdateCommand.Parameters[25].Value = ((int)(ID));
+            this.Adapter.UpdateCommand.Parameters[28].Value = ((int)(ID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2448,6 +2557,7 @@ SELECT ID, Product_id, Starttime, [Order], Offer, OfferTime, Quantity, Sum_price
                     global::System.Nullable<global::System.TimeSpan> Order, 
                     global::System.Nullable<global::System.TimeSpan> Offer, 
                     global::System.Nullable<global::System.TimeSpan> OfferTime, 
+                    string Product_name, 
                     global::System.Nullable<int> Quantity, 
                     global::System.Nullable<int> Sum_price, 
                     string Status, 
@@ -2457,10 +2567,11 @@ SELECT ID, Product_id, Starttime, [Order], Offer, OfferTime, Quantity, Sum_price
                     global::System.Nullable<global::System.TimeSpan> Original_Order, 
                     global::System.Nullable<global::System.TimeSpan> Original_Offer, 
                     global::System.Nullable<global::System.TimeSpan> Original_OfferTime, 
+                    string Original_Product_name, 
                     global::System.Nullable<int> Original_Quantity, 
                     global::System.Nullable<int> Original_Sum_price, 
                     string Original_Status) {
-            return this.Update(Product_id, Starttime, Order, Offer, OfferTime, Quantity, Sum_price, Status, Original_ID, Original_Product_id, Original_Starttime, Original_Order, Original_Offer, Original_OfferTime, Original_Quantity, Original_Sum_price, Original_Status, Original_ID);
+            return this.Update(Product_id, Starttime, Order, Offer, OfferTime, Product_name, Quantity, Sum_price, Status, Original_ID, Original_Product_id, Original_Starttime, Original_Order, Original_Offer, Original_OfferTime, Original_Product_name, Original_Quantity, Original_Sum_price, Original_Status, Original_ID);
         }
     }
     

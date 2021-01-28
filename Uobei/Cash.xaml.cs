@@ -21,7 +21,7 @@ namespace Uobei
     {
         public Check()
         {
-            InitializeComponent();
+            InitializeComponent();      
         }
 
         #region ボタン編集
@@ -59,6 +59,23 @@ namespace Uobei
         {
             var top = new Top();
             NavigationService.Navigate(top);
+        }
+        #endregion
+
+        #region 注文確定ボタン
+        private void Chumon_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("ご注文が完了しました。");
+
+            //注文確定
+            Uobei.SushiOrderDBDataSet sushiOrderDBDataSet = ((Uobei.SushiOrderDBDataSet)(this.FindResource("sushiOrderDBDataSet")));
+            // テーブル 注文情報 にデータを読み込みます。必要に応じてこのコードを変更できます。
+            Uobei.SushiOrderDBDataSetTableAdapters.注文情報TableAdapter sushiOrderDBDataSet注文情報TableAdapter = new Uobei.SushiOrderDBDataSetTableAdapters.注文情報TableAdapter();
+            sushiOrderDBDataSet注文情報TableAdapter.Fill(sushiOrderDBDataSet.注文情報);
+            System.Windows.Data.CollectionViewSource 注文情報ViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("注文情報ViewSource")));
+            注文情報ViewSource.View.MoveCurrentToFirst();
+
+            sushiOrderDBDataSet注文情報TableAdapter.Update(sushiOrderDBDataSet.注文情報);
         }
         #endregion
     }

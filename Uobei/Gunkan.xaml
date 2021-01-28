@@ -24,54 +24,56 @@
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="200*"/>
+            <ColumnDefinition Width="200*"/>
+            <ColumnDefinition Width="23*"/>
+            <ColumnDefinition Width="177*"/>
+            <ColumnDefinition Width="200*"/>
         </Grid.ColumnDefinitions>
 
         <Rectangle Grid.Row="1" Grid.Column="0" Fill="Black" />
         <Rectangle Grid.Row="1" Grid.Column="1" Fill="Black" />
-        <Rectangle Grid.Row="1" Grid.Column="2" Fill="Black" />
+        <Rectangle Grid.Row="1" Grid.Column="2" Fill="Black" Grid.ColumnSpan="2" />
         <Rectangle Grid.Row="2" Grid.Column="0" Fill="Black" />
         <Rectangle Grid.Row="2" Grid.Column="1" Fill="Black" />
-        <Rectangle Grid.Row="2" Grid.Column="2" Fill="Black" />
-        <Rectangle Grid.Row="1" Grid.Column="3" Fill="#FFEE3232" />
-        <Rectangle Grid.Row="2" Grid.Column="3" Fill="Red" />
+        <Rectangle Grid.Row="2" Grid.Column="2" Fill="Black" Grid.ColumnSpan="2" />
+        <Rectangle Grid.Row="1" Grid.Column="4" Fill="#FFEE3232" />
+        <Rectangle Grid.Row="2" Grid.Column="4" Fill="Red" />
 
-        <Button Grid.Column="0" Grid.Row="0" Content="握り" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="50" Background="#FFF7CAA3" FontSize="25" FontFamily="HGSSoeiKakupoptai" Name="GunNigiri" Click="GunNigiri_Click" />
-        <Button Grid.Column="1" Grid.Row="0" Content="軍艦" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="50" Background="#FFF7CAA3" FontSize="25" FontFamily="HGSSoeiKakupoptai" Name="GunGun"/>
-        <Button Grid.Column="2" Grid.Row="0" Content=" サイド&#10;メニュー" HorizontalAlignment="Center" VerticalAlignment="Center" Width="110" Height="50" Background="#FFF7CAA3" FontSize="20" FontFamily="HGSSoeiKakupoptai" Name="GunSaido" Click="GunSaido_Click"/>
-        <Button Grid.Column="3" Grid.Row="0" Content="デザート&#10;ドリンク" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="50" Background="#FFF7CAA3" FontSize="20" FontFamily="HGSSoeiKakupoptai" Name="GunDezart" Click="GunDezart_Click"/>
+        <Button Grid.Column="0" Grid.Row="0" Content="握り" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="50" Background="#FFF7CAA3" FontSize="25" FontFamily="HGSSoeiKakupoptai" Name="GunNigiri" Click="GunNigiri_Click" Margin="50,12,50,13" />
+        <Button Grid.Column="1" Grid.Row="0" Content="軍艦" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="50" Background="#FFF7CAA3" FontSize="25" FontFamily="HGSSoeiKakupoptai" Name="GunGun" Margin="50,12,50,13"/>
+        <Button Grid.Column="3" Grid.Row="0" Content=" サイド&#10;メニュー" HorizontalAlignment="Center" VerticalAlignment="Center" Width="110" Height="50" Background="#FFF7CAA3" FontSize="20" FontFamily="HGSSoeiKakupoptai" Name="GunSaido" Click="GunSaido_Click" Margin="22,12,45,13"/>
+        <Button Grid.Column="4" Grid.Row="0" Content="デザート&#10;ドリンク" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="50" Background="#FFF7CAA3" FontSize="20" FontFamily="HGSSoeiKakupoptai" Name="GunDezart" Click="GunDezart_Click" Margin="50,12,50,13"/>
 
-        <Button Grid.Column="0" Grid.Row="3" Content="前へ" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="50" Background="#FFA3F7F3" FontSize="25" FontFamily="HGSSoeiKakupoptai" Name="GunFront" Click="GunFront_Click"/>
-        <Button Grid.Column="1" Grid.Row="3" Content="次へ" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="50" Background="#FFA3F7EF" FontSize="25" FontFamily="HGSSoeiKakupoptai" Name="GunBack" Click="GunBack_Click"/>
-        <Button Grid.Column="2" Grid.Row="3" Content="注文へ" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="50" Background="#FFFBFB3B" FontSize="25" FontFamily="HGSSoeiKakupoptai"  Name="GunChumon" Click="GunChumon_Click"/>
-        <Button Grid.Column="3" Grid.Row="3" Content="会計確認" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="50" Background="#FFF57B6F" FontSize="22" FontFamily="HGSSoeiKakupoptai" Name="GunCash" Click="GunCash_Click"/>
+        <Button Grid.Column="0" Grid.Row="3" Content="前へ" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="50" Background="#FFA3F7F3" FontSize="25" FontFamily="HGSSoeiKakupoptai" Name="GunFront" Click="GunFront_Click" Margin="50,13,50,12"/>
+        <Button Grid.Column="1" Grid.Row="3" Content="次へ" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="50" Background="#FFA3F7EF" FontSize="25" FontFamily="HGSSoeiKakupoptai" Name="GunBack" Click="GunBack_Click" Margin="50,13,50,12"/>
+        <Button Grid.Column="3" Grid.Row="3" Content="注文へ" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="50" Background="#FFFBFB3B" FontSize="25" FontFamily="HGSSoeiKakupoptai"  Name="GunChumon" Click="GunChumon_Click" Margin="27,13,50,12"/>
+        <Button Grid.Column="4" Grid.Row="3" Content="会計確認" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="50" Background="#FFF57B6F" FontSize="22" FontFamily="HGSSoeiKakupoptai" Name="GunCash" Click="GunCash_Click" Margin="50,13,50,12"/>
 
-        <TextBox Grid.Row="1" Grid.Column="3" VerticalAlignment="Center" x:Name="count" Text="0" Width="30" Height="30" FontSize="25" HorizontalAlignment="Center" Margin="35,25,135,90" TextAlignment="Center" RenderTransformOrigin="0.5,0.033"/>
-        <Button Grid.Column="3" Grid.Row="1" Content="－" FontSize="26" Height="30" Width="30" FontFamily="HGSSoeiKakupoptai" Margin="82,23,86,87" Name="Dec" RenderTransformOrigin="0.6,0.167"/>
-        <Button Grid.Column="3" Grid.Row="1" Content="＋" FontSize="26" Height="30" Width="30" FontFamily="HGSSoeiKakupoptai" Margin="131,23,37,87" Name="Inc"/>
+        <TextBox Grid.Row="1" Grid.Column="4" VerticalAlignment="Center" x:Name="count" Text="0" Width="30" Height="30" FontSize="25" HorizontalAlignment="Center" Margin="40,27,130,93" TextAlignment="Center" RenderTransformOrigin="0.5,0.033"/>
+        <Button Grid.Column="4" Grid.Row="1" Content="－" FontSize="26" Height="30" Width="30" FontFamily="HGSSoeiKakupoptai" Margin="82,27,88,93" Name="Dec" RenderTransformOrigin="0.6,0.167"/>
+        <Button Grid.Column="4" Grid.Row="1" Content="＋" FontSize="26" Height="30" Width="30" FontFamily="HGSSoeiKakupoptai" Margin="130,27,40,93" Name="Inc"/>
 
-        <ListBox Grid.Row="1" Grid.Column="3" Width="150" Height="200" Margin="0,60,20,20" Grid.RowSpan="2" HorizontalAlignment="Right" Name="ListBox"/>
+        <ListBox Grid.Row="1" Grid.Column="4" Width="99" Height="200" Margin="0,70,74,30" Grid.RowSpan="2" HorizontalAlignment="Right" Name="ListBox3" FontSize="25"/>
+        <ListBox Grid.Row="1" Grid.Column="4" Width="49" Margin="0,70,25,35" Grid.RowSpan="2" HorizontalAlignment="Right" Name="ListBox4" FontSize="25"/>
 
         <!--写真ボタン-->
-        <Button Grid.Column="0" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Width="200" Height="150" Background="White" Command="{Binding}">
+        <Button Grid.Column="0" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Width="200" Height="150" Background="White" Command="{Binding}" Click="Button_Click">
             <Image Source="\\172.16.42.1\学生共有\Uobei\商品情報\magurotataki.jpeg" Width="190"/>
         </Button>
-        <Button Grid.Column="1" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Width="200" Height="150" Background="White" Command="{Binding}">
+        <Button Grid.Column="1" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Width="200" Height="150" Background="White" Command="{Binding}" Click="Button_Click_1">
             <Image Source="\\172.16.42.1\学生共有\Uobei\商品情報\ikura.jpeg" Width="190"/>
         </Button>
-        <Button Grid.Column="2" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Width="200" Height="150" Background="White" Command="{Binding}">
+        <Button Grid.Column="2" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Width="200" Height="150" Background="White" Command="{Binding}" Click="Button_Click_2" Grid.ColumnSpan="2">
             <Image Source="\\172.16.42.1\学生共有\Uobei\商品情報\tobiko.jpeg" Width="190"/>
         </Button>
-        <Button Grid.Column="0" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" Width="200" Height="150" Background="White" Command="{Binding}">
+        <Button Grid.Column="0" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" Width="200" Height="150" Background="White" Command="{Binding}" Click="Button_Click_3">
             <Image Source="\\172.16.42.1\学生共有\Uobei\商品情報\yukke.jpeg" Width="190"/>
         </Button>
-        <Button Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" Width="200" Height="150" Background="White" Command="{Binding}">
+        <Button Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" Width="200" Height="150" Background="White" Command="{Binding}" Click="Button_Click_4">
             <Image Source="\\172.16.42.1\学生共有\Uobei\商品情報\nattou.jpeg" Width="190"/>
         </Button>
-        <Button Grid.Column="2" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" Width="200" Height="150" Background="White" Command="{Binding}">
+        <Button Grid.Column="2" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" Width="200" Height="150" Background="White" Command="{Binding}" Click="Button_Click_5" Grid.ColumnSpan="2">
             <Image Source="\\172.16.42.1\学生共有\Uobei\商品情報\ko-nn.jpeg" Width="190"/>
         </Button>
 

@@ -61,11 +61,18 @@
     <Compile Include="Cash.xaml.cs">
       <DependentUpon>Cash.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DB.xaml.cs">
+      <DependentUpon>DB.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Dezart.xaml.cs">
       <DependentUpon>Dezart.xaml</DependentUpon>
     </Compile>
+    <Compile Include="OrderList.cs" />
     <Compile Include="Saido.xaml.cs">
       <DependentUpon>Saido.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SushiOrderDBDataSet.cs">
+      <DependentUpon>SushiOrderDBDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="SushiOrderDBDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -74,12 +81,17 @@
     </Compile>
     <Compile Include="Top.xaml.cs">
       <DependentUpon>Top.xaml</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Page Include="Check.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Cash.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DB.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -122,6 +134,7 @@
     <Page Include="Top.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Page>
   </ItemGroup>
   <ItemGroup>

@@ -50,30 +50,31 @@
         <Button Grid.Column="2" Grid.Row="3" Content="注文へ" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="50" Background="#FFFBFB3B" FontSize="25" FontFamily="HGSSoeiKakupoptai"  Name="DezartChumon" Click="DezartChumon_Click"/>
         <Button Grid.Column="3" Grid.Row="3" Content="会計確認" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="50" Background="#FFF57B6F" FontSize="22" FontFamily="HGSSoeiKakupoptai" Name="DezartCash" Click="DezartCash_Click"/>
 
-        <TextBox Grid.Row="1" Grid.Column="3" VerticalAlignment="Center" x:Name="count" Text="0" Width="30" Height="30" FontSize="25" HorizontalAlignment="Center" Margin="36,23,132,87" TextAlignment="Center"/>
-        <Button Grid.Column="3" Grid.Row="1" Content="－" FontSize="26" Height="30" Width="30" FontFamily="HGSSoeiKakupoptai" Margin="83,23,85,87" Name="Dec"/>
-        <Button Grid.Column="3" Grid.Row="1" Content="＋" FontSize="26" Height="30" Width="30" FontFamily="HGSSoeiKakupoptai" Margin="128,23,40,87" Name="Inc"/>
+        <TextBox Grid.Row="1" Grid.Column="3" VerticalAlignment="Center" x:Name="count" Text="0" Width="30" Height="30" FontSize="25" HorizontalAlignment="Center" Margin="40,25,130,90" TextAlignment="Center"/>
+        <Button Grid.Column="3" Grid.Row="1" Content="－" FontSize="26" Height="30" Width="30" FontFamily="HGSSoeiKakupoptai" Margin="80,25,85,90" Name="Dec"/>
+        <Button Grid.Column="3" Grid.Row="1" Content="＋" FontSize="26" Height="30" Width="30" FontFamily="HGSSoeiKakupoptai" Margin="130,25,40,90" Name="Inc"/>
 
-        <ListBox Grid.Row="1" Grid.Column="3" Width="150" Height="200" Margin="0,58,24,21.5" Grid.RowSpan="2" HorizontalAlignment="Right" Name="ListBox"/>
+        <ListBox Grid.Row="1" Grid.Column="3" Width="99" Height="200" Margin="0,70,74,35" Grid.RowSpan="2" HorizontalAlignment="Right" Name="ListBox7" FontSize="25"/>
+        <ListBox Grid.Row="1" Grid.Column="3" Width="49" Margin="0,70,25,35" Grid.RowSpan="2" HorizontalAlignment="Right" Name="ListBox8" FontSize="25"/>
 
         <!--写真ボタン-->
-        <Button Grid.Column="0" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Width="200" Height="150" Background="White" Command="{Binding}">
-            <Image Source="\\172.16.42.1\学生共有\Uobei\商品情報\purin.jpeg" Width="190"/>
+        <Button Grid.Column="0" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Width="200" Height="150" Background="White" Command="{Binding}" Click="Button_Click">
+            <Image Source="\\172.16.42.1\学生共有\Uobei\商品情報\purin.jpeg" Width="158"/>
         </Button>
-        <Button Grid.Column="1" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Width="200" Height="150" Background="White" Command="{Binding}">
-            <Image Source="\\172.16.42.1\学生共有\Uobei\商品情報\tyoko.jpeg" Width="190"/>
+        <Button Grid.Column="1" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Width="200" Height="150" Background="White" Command="{Binding}" Click="Button_Click_1">
+            <Image Source="\\172.16.42.1\学生共有\Uobei\商品情報\tyoko.jpeg" Width="164"/>
         </Button>
-        <Button Grid.Column="2" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Width="200" Height="150" Background="White" Command="{Binding}">
-            <Image Source="\\172.16.42.1\学生共有\Uobei\商品情報\sohuto.jpeg" Width="190"/>
+        <Button Grid.Column="2" Grid.Row="1" VerticalAlignment="Top" Height="150" Background="White" Command="{Binding}" Click="Button_Click_2">
+            <Image Source="\\172.16.42.1\学生共有\Uobei\商品情報\sohuto.jpeg" Width="165"/>
         </Button>
-        <Button Grid.Column="0" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" Width="200" Height="150" Background="White" Command="{Binding}">
-            <Image Source="\\172.16.42.1\学生共有\Uobei\商品情報\ko-ra.jpeg" Width="190"/>
+        <Button Grid.Column="0" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" Width="200" Height="150" Background="White" Command="{Binding}" Click="Button_Click_3">
+            <Image Source="\\172.16.42.1\学生共有\Uobei\商品情報\ko-ra.jpeg" Width="160"/>
         </Button>
-        <Button Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" Width="200" Height="150" Background="White" Command="{Binding}">
-            <Image Source="\\172.16.42.1\学生共有\Uobei\商品情報\gure-pu.jpeg" Width="190"/>
+        <Button Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" Width="200" Height="150" Background="White" Command="{Binding}" Click="Button_Click_4">
+            <Image Source="\\172.16.42.1\学生共有\Uobei\商品情報\gure-pu.jpeg" Width="137"/>
         </Button>
-        <Button Grid.Column="2" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" Width="200" Height="150" Background="White" Command="{Binding}">
-            <Image Source="\\172.16.42.1\学生共有\Uobei\商品情報\appuru.jpeg" Width="190"/>
+        <Button Grid.Column="2" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" Width="200" Height="150" Background="White" Command="{Binding}" Click="Button_Click_5">
+            <Image Source="\\172.16.42.1\学生共有\Uobei\商品情報\appuru.jpeg" Width="162"/>
         </Button>
     </Grid>
 </Page>
