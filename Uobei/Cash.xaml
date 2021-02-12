@@ -30,7 +30,7 @@
         </Grid.ColumnDefinitions>
 
         <Grid.Background>
-            <ImageBrush ImageSource="C:\Users\infosys\source\repos\Uobei\Uobei\Menu2.jfif"/>
+            <ImageBrush ImageSource="Menu2.jfif"/>
         </Grid.Background>
 
 

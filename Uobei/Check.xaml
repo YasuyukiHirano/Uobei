@@ -19,7 +19,7 @@
         </Grid.RowDefinitions>
 
         <Grid.Background>
-            <ImageBrush ImageSource="C:\Users\infosys\source\repos\Uobei\Uobei\Anpan.jfif"/>
+            <ImageBrush ImageSource="Anpan.jfif"/>
         </Grid.Background>
 
         <Button Grid.Row="0" Content="お会計" FontSize="35" FontFamily="HGSSoeiKakupoptai" Margin="10,54,10,80" Name="cash" Background="#FFF94230" Width="200" Height="170" HorizontalAlignment="Right" Foreground="White" Click="Cash_Click"/>

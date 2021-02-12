@@ -65,13 +65,7 @@
     <Compile Include="DB.xaml.cs">
       <DependentUpon>DB.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Dezart.xaml.cs">
-      <DependentUpon>Dezart.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Order.cs" />
-    <Compile Include="Saido.xaml.cs">
-      <DependentUpon>Saido.xaml</DependentUpon>
-    </Compile>
     <Compile Include="SushiOrderDBDataSet.cs">
       <DependentUpon>SushiOrderDBDataSet.xsd</DependentUpon>
     </Compile>
@@ -96,15 +90,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Dezart.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Gunkan.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -113,10 +98,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Gunkan.xaml.cs">
-      <DependentUpon>Gunkan.xaml</DependentUpon>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -127,10 +108,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Page>
-    <Page Include="Saido.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Top.xaml">
       <SubType>Designer</SubType>
