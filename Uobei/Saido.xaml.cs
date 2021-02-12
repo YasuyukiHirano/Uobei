@@ -51,7 +51,7 @@ namespace Uobei
         //サイドメニューから握りへ
         private void SaidoNigiri_Click(object sender, RoutedEventArgs e)
         {
-            var nigiri = new Nigiri();
+            var nigiri = new Menu();
             NavigationService.Navigate(nigiri);
         }
 

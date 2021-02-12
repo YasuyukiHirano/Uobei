@@ -4,8 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Uobei"
+        WindowStyle='None'
+        AllowsTransparency='True'
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
+        Title="MainWindow" Height="485" Width="800" Loaded="Window_Loaded">
     <Window.Resources>
         <local:SushiOrderDBDataSet x:Key="sushiOrderDBDataSet"/>
         <CollectionViewSource x:Key="商品テーブルViewSource" Source="{Binding 商品テーブル, Source={StaticResource sushiOrderDBDataSet}}"/>
@@ -13,7 +15,31 @@
 
     <Grid DataContext="{StaticResource 商品テーブルViewSource}" >
 
+
+        <Border Background='White' >
+            <HeaderedContentControl>
+                <HeaderedContentControl.Header>
+                    <Grid MouseDown='OnDragMoveWindow'>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width='*' />
+                            <ColumnDefinition Width='Auto' />
+                        </Grid.ColumnDefinitions>
+
+                        <Rectangle Grid.ColumnSpan='2'
+                                   Fill='Gray' />
+
+                        <TextBlock Grid.Column='0'
+                                   FontSize='15'
+                                   Foreground="White"
+                                   VerticalAlignment='Center'
+                                   Margin="5"
+                                   Text='MainWindow CustomBar' />
+                    </Grid>
+                </HeaderedContentControl.Header>
+            </HeaderedContentControl>
+        </Border>
         <Frame Name="frame" NavigationUIVisibility="Hidden" Source="{Binding}" />
 
     </Grid>
+    
 </Window>

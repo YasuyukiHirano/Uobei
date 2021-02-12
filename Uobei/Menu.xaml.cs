@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -17,70 +17,24 @@ using System.Windows.Shapes;
 namespace Uobei
 {
     /// <summary>
-    /// Check.xaml の相互作用ロジック
+    /// Nigiri.xaml の相互作用ロジック
     /// </summary>
-    public partial class Check : Page
+    public partial class Menu : Page
     {
-        public Check()
+        public Menu()
         {
             InitializeComponent();
-            ListAdd();
         }
 
-        int count = 0;
+        #region 初期値設定
+        int itemCnt;
+        int countnum = 0;
         int num;
+        #endregion
 
-        //リスト
-        private void ListAdd()
+        #region データベース
+        private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            ListBox1.Items.Clear();
-            ListBox2.Items.Clear();
-            foreach (KeyValuePair<string, int> kvp in Order.OrderList)
-            {
-                ListBox1.Items.Add(kvp.Key);
-                ListBox2.Items.Add(kvp.Value);
-            }
-        }
-
-        //リストからマイナス
-        private void ListDec()
-        {
-
-            //削除する初期化
-            int delete = 0;
-            //商品名を取ってくる
-            string name = "";
-
-            ListBox1.Items.Clear();
-            ListBox2.Items.Clear();
-
-            foreach (KeyValuePair<string, int> kvp in Order.OrderList)
-            {
-                if (kvp.Value == 0)
-                {
-                    ListBox1.Items.Remove(kvp.Key);
-                    ListBox2.Items.Remove(kvp.Value);
-                    delete++;
-                    name = kvp.Key;
-
-                }
-                else
-                {
-                    ListBox1.Items.Add(kvp.Key);
-                    ListBox2.Items.Add(kvp.Value);
-                }
-            }
-            //OrderListに追加されているList(Name)を削除
-            if (delete == 1)
-            {
-                Order.OrderList.Remove(name);
-            }
-
-        }
-
-        private void Page_Loaded(object sender, RoutedEventArgs e)
-        {
-            //DB
             Uobei.SushiOrderDBDataSet sushiOrderDBDataSet = ((Uobei.SushiOrderDBDataSet)(this.FindResource("sushiOrderDBDataSet")));
             // テーブル 商品テーブル にデータを読み込みます。必要に応じてこのコードを変更できます。
             Uobei.SushiOrderDBDataSetTableAdapters.商品テーブルTableAdapter sushiOrderDBDataSet商品テーブルTableAdapter = new Uobei.SushiOrderDBDataSetTableAdapters.商品テーブルTableAdapter();
@@ -88,123 +42,362 @@ namespace Uobei
             System.Windows.Data.CollectionViewSource 商品テーブルViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("商品テーブルViewSource")));
             商品テーブルViewSource.View.MoveCurrentToFirst();
 
-            // テーブル 注文情報 にデータを読み込みます。必要に応じてこのコードを変更できます。
-            Uobei.SushiOrderDBDataSetTableAdapters.注文情報TableAdapter sushiOrderDBDataSet注文情報TableAdapter = new Uobei.SushiOrderDBDataSetTableAdapters.注文情報TableAdapter();
-            sushiOrderDBDataSet注文情報TableAdapter.Fill(sushiOrderDBDataSet.注文情報);
-            System.Windows.Data.CollectionViewSource 注文情報ViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("注文情報ViewSource")));
-            注文情報ViewSource.View.MoveCurrentToFirst();
-
             //注文個数
             foreach (var item in Order.OrderList)
             {
-                count += item.Value;
+                countnum += item.Value;
+                //itemCntを保持
+                itemCnt += item.Value;
             }
-            count6.Content = count;
+            //if(itemCnt > 4 && itemCnt != 0)
+            //{
+            //    Inc.IsEnabled = true;
+            //    Dec.IsEnabled = true;
+            //}
+            //else
+            //{
+            //    Inc.IsEnabled = false;
+            //    Dec.IsEnabled = false;
+            //}
+            count.Content = countnum;
+
+            //リストを表示させる動作(値は何も追加しない)
+            ListAdd();
         }
+        #endregion
 
         #region ボタン編集
 
-        //会計確認から握りへ
-        private void CheckNigiri_Click(object sender, RoutedEventArgs e)
+        //メニュー握り
+        private void NigiriNigiri_Click(object sender, RoutedEventArgs e)
         {
             Maguro();
+            
         }
 
-        //会計確認から軍艦へ
-        private void CheckGun_Click(object sender, RoutedEventArgs e)
+        //メニュー軍艦
+        private void NigiriGun_Click(object sender, RoutedEventArgs e)
         {
             Gunkan();
+            
         }
 
-        //会計確認からサイドへ
-        private void CheckSaido_Click(object sender, RoutedEventArgs e)
+        //メニューサイド
+        private void NigiriSaido_Click(object sender, RoutedEventArgs e)
         {
             Saido();
+            
         }
 
-        //会計確認からデザートへ
-        private void CheckDezart_Click(object sender, RoutedEventArgs e)
+        //メニューデザート
+        private void NigiriDezart_Click(object sender, RoutedEventArgs e)
         {
             Dezart();
+            
         }
 
-        //会計確認からトップへ
-        private void CheckTop_Click(object sender, RoutedEventArgs e)
+        //メニューから会計確認へ
+        private void NigiriCash_Click(object sender, RoutedEventArgs e)
         {
-            var top = new Top();
-            NavigationService.Navigate(top);
+            var cash = new Cash();
+            NavigationService.Navigate(cash);
+        }
+
+        //メニューから注文へ
+        private void NigiriChumon_Click(object sender, RoutedEventArgs e)
+        {
+            var check = new Check();
+            NavigationService.Navigate(check);
+        }
+
+        //握り前へ
+        private void NigiriFront_Click(object sender, RoutedEventArgs e)
+        {
+           
+            if (this.NavigationService.CanGoBack)
+            {
+                this.NavigationService.GoBack();
+            }
+        }
+
+        //握り次へ
+        private void NigiriBack_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.NavigationService.CanGoForward)
+            {
+                this.NavigationService.GoForward();
+            }
         }
         #endregion
 
-        #region 注文確定ボタン
-        private void Chumon_Click(object sender, RoutedEventArgs e)
-        {
-            num = 0;
-            foreach (var item in Order.OrderList)
+        #region にぎり
+
+            #region Button1注文           
+            private void Button1_Click(object sender, RoutedEventArgs e)
             {
-                num += item.Value;
-            }
-
-            if (num != 0)
-            {
-                MessageBox.Show("ご注文が完了しました。");
-
-                //注文確定
-                Uobei.SushiOrderDBDataSet sushiOrderDBDataSet = ((Uobei.SushiOrderDBDataSet)(this.FindResource("sushiOrderDBDataSet")));
-                // テーブル 注文情報 にデータを読み込みます。必要に応じてこのコードを変更できます。
-                Uobei.SushiOrderDBDataSetTableAdapters.注文情報TableAdapter sushiOrderDBDataSet注文情報TableAdapter = new Uobei.SushiOrderDBDataSetTableAdapters.注文情報TableAdapter();
-                sushiOrderDBDataSet注文情報TableAdapter.Fill(sushiOrderDBDataSet.注文情報);
-                System.Windows.Data.CollectionViewSource 注文情報ViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("注文情報ViewSource")));
-                注文情報ViewSource.View.MoveCurrentToFirst();
-
-                //DB
-                Uobei.SushiOrderDBDataSet sushiOrderDBDataSet1 = ((Uobei.SushiOrderDBDataSet)(this.FindResource("sushiOrderDBDataSet")));
-                // テーブル 商品テーブル にデータを読み込みます。必要に応じてこのコードを変更できます。
-                Uobei.SushiOrderDBDataSetTableAdapters.商品テーブルTableAdapter sushiOrderDBDataSet商品テーブルTableAdapter = new Uobei.SushiOrderDBDataSetTableAdapters.商品テーブルTableAdapter();
-                sushiOrderDBDataSet商品テーブルTableAdapter.Fill(sushiOrderDBDataSet.商品テーブル);
-                System.Windows.Data.CollectionViewSource 商品テーブルViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("商品テーブルViewSource")));
-                商品テーブルViewSource.View.MoveCurrentToFirst();
-
-                for (int i = 0; i < ListBox2.Items.Count; i++)
+                num = 0;
+                if (itemCnt < 4)
                 {
-                    DataRow newDrv = (DataRow)sushiOrderDBDataSet.注文情報.NewRow();
-                    newDrv[3] = Time(sender, e);
-                    newDrv[6] = ListBox1.Items[i];
-                    newDrv[7] = ListBox2.Items[i];
-                    var price = (int[])sushiOrderDBDataSet1.商品テーブル.Where(x => x.Name == ListBox1.Items[i].ToString())
-                                                                         .Select(x => x.Price * int.Parse(ListBox2.Items[i].ToString())).ToArray();
-                    newDrv[8] = price[0];
-                    newDrv[9] = "未";
-                    //データセットに新しいレコードを追加
-                    sushiOrderDBDataSet.注文情報.Rows.Add(newDrv);
+                //Inc.IsEnabled = true;
+                //Dec.IsEnabled = true;
+                Order.OrderAdd(Button1.Name);
+                    ListAdd();
+                    foreach (var item in Order.OrderList)
+                    {
+                      num += item.Value;
+                    }
+                    count.Content = num;
+                    itemCnt++;                    
                 }
-                //データベース更新
-                sushiOrderDBDataSet注文情報TableAdapter.Update(sushiOrderDBDataSet.注文情報);
+                else
+                {
+                    MessageBox.Show("一度に4皿まで注文できます。");
+
+                    var check = new Check();
+                    NavigationService.Navigate(check);
+                }
+            }
+            #endregion
+
+            #region Button2注文        
+            private void Button2_Click(object sender, RoutedEventArgs e)
+            {
+                num = 0;
+                if (itemCnt < 4)
+                {
+                    Order.OrderAdd(Button2.Name);
+                    ListAdd();
+                    foreach (var item in Order.OrderList)
+                    {
+                       num += item.Value;
+                    }
+                    count.Content = num;
+                    itemCnt++;
+                }
+                else
+                {
+                    MessageBox.Show("一度に4皿まで注文できます。");
+                                     var check = new Check();
+                    NavigationService.Navigate(check);
+                }
+            }
+        #endregion
+
+            #region Button3注文
+            private void Button3_Click(object sender, RoutedEventArgs e)
+            {
+                num = 0;
+                if (itemCnt < 4)
+                {
+                    Order.OrderAdd(Button3.Name);
+                    ListAdd();
+                    foreach (var item in Order.OrderList)
+                    {
+                        num += item.Value;
+                    }
+                    count.Content = num;
+                    itemCnt++;
+                }
+                else
+                {
+                    MessageBox.Show("一度に4皿まで注文できます。");
+
+                    var check = new Check();
+                    NavigationService.Navigate(check);
+                }
+            }
+        #endregion
+
+            #region Button4注文
+            private void Button4_Click(object sender, RoutedEventArgs e)
+            {
+                num = 0;
+                if (itemCnt < 4)
+                {
+                    Order.OrderAdd(Button4.Name);
+                    ListAdd();
+                    foreach (var item in Order.OrderList)
+                    {
+                        num += item.Value;
+                    }
+                    count.Content = num;
+                itemCnt++;
+                }
+                else
+                {
+                    MessageBox.Show("一度に4皿まで注文できます。");
+
+                    var check = new Check();
+                    NavigationService.Navigate(check);
+                }
+            }
+        #endregion
+
+            #region Button5注文
+            private void Button5_Click(object sender, RoutedEventArgs e)
+            {
+                num = 0;
+                if (itemCnt < 4)
+                {
+                    Order.OrderAdd(Button5.Name);
+                    ListAdd();
+                    foreach (var item in Order.OrderList)
+                    {
+                        num += item.Value;
+                    }
+                    count.Content = num;
+                    itemCnt++;
+                }
+                else
+                {
+                    MessageBox.Show("一度に4皿まで注文できます。");
+
+                    var check = new Check();
+                    NavigationService.Navigate(check);
+                }
+            }
+            #endregion
+
+            #region Button6注文
+            private void Button6_Click(object sender, RoutedEventArgs e)
+            {
+                num = 0;
+                if (itemCnt < 4)
+                {
+                    Order.OrderAdd(Button6.Name);
+                    ListAdd();
+                    foreach (var item in Order.OrderList)
+                    {
+                        num += item.Value;
+                    }
+                    count.Content = num;
+                    itemCnt++;
+                }
+                else
+                {
+                    MessageBox.Show("一度に4皿まで注文できます。");
+
+                    var check = new Check();
+                    NavigationService.Navigate(check);
+                }
+            }
+            #endregion
+
+            #region リストに追加
+            private void ListAdd()
+            {
                 ListBox1.Items.Clear();
                 ListBox2.Items.Clear();
-                Order.OrderList.Clear();
-                count6.Content = null;
+                foreach (KeyValuePair<string, int> kvp in Order.OrderList)
+                {
+                    ListBox1.Items.Add(kvp.Key);
+                    ListBox2.Items.Add(kvp.Value);
+                }
             }
-            else
+            #endregion
+
+            #region リストからマイナス
+            private void ListDec()
             {
-                MessageBox.Show("商品を選択してください。");
+            
+            //削除する初期化
+            int delete = 0;
+            //商品名を取ってくる
+            string name = "";
+                ListBox1.Items.Clear();
+                ListBox2.Items.Clear();
+            foreach (KeyValuePair<string, int> kvp in Order.OrderList)
+                {
+                    if(kvp.Value == 0)
+                {
+                    ListBox1.Items.Remove(kvp.Key);
+                    ListBox2.Items.Remove(kvp.Value);
+                    delete++;
+                    name = kvp.Key;
+                    
+                }
+                else
+                {
+                    ListBox1.Items.Add(kvp.Key);
+                    ListBox2.Items.Add(kvp.Value);
+                    
+                }
+                
+
             }
-        }
+            //OrderListに追加されているList(Name)を削除
+            if(delete == 1)
+            {
+                Order.OrderList.Remove(name);
+            }
+            }
+            #endregion
+
+            #region +ボタン        
+            private void Inc_Click(object sender, RoutedEventArgs e)
+            {
+                num = 0;
+            try
+            {
+                if (itemCnt < 4)
+                {
+                    ListBox2.Items.Add(Order.OrderAdd(ListBox1.SelectedItem.ToString()));
+                    ListAdd();
+                    foreach (var item in Order.OrderList)
+                    {
+                        num += item.Value;
+                    }
+                    count.Content = num;
+                    itemCnt++;
+                }
+                else
+                {
+                    MessageBox.Show("一度に4皿まで注文できます。");
+
+                    var check = new Check();
+                    NavigationService.Navigate(check);
+                }
+            }
+            catch (NullReferenceException)
+            {
+                return;
+            }
+                
+            }
+            #endregion
+
+            #region -ボタン
+            private void Dec_Click(object sender, RoutedEventArgs e)
+            {
+            num = 0;
+                try
+                {
+                    if (itemCnt > 0)
+                    {
+                        Order.OrderDec(ListBox1.SelectedItem.ToString());                                               
+                        ListDec();
+                    foreach (var item in Order.OrderList)
+                    {
+                        
+                        num  +=  item.Value;
+                    }
+                    count.Content = num;
+                    itemCnt--;
+                }
+                else if (itemCnt == 0)
+                {
+                    return;
+                }
+                }
+                catch (NullReferenceException)
+                {
+                    return;
+                }                                
+            }
+            #endregion
+
         #endregion
 
-        //日本の現在の時刻を持ってくる
-        private TimeSpan Time(object sender, RoutedEventArgs e)
-        {
-            //日本時間のタイムゾーン
-            var jstZoneInfo = TimeZoneInfo.FindSystemTimeZoneById("Tokyo Standard Time");
-            DateTime utc = DateTime.UtcNow;
-            DateTime dt = TimeZoneInfo.ConvertTimeFromUtc(utc, jstZoneInfo);
-            TimeSpan ts = dt.TimeOfDay;
-
-            return ts;
-        }
-
-        #region メソッド
         //握りページのメソッド
         public void Maguro()
         {
@@ -213,13 +406,12 @@ namespace Uobei
             Uobei.SushiOrderDBDataSetTableAdapters.商品テーブルTableAdapter sushiOrderDBDataSet商品テーブルTableAdapter = new Uobei.SushiOrderDBDataSetTableAdapters.商品テーブルTableAdapter();
             sushiOrderDBDataSet商品テーブルTableAdapter.Fill(sushiOrderDBDataSet.商品テーブル);
             System.Windows.Data.CollectionViewSource 商品テーブルViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("商品テーブルViewSource")));
-            商品テーブルViewSource.View.MoveCurrentToFirst();
-
+            商品テーブルViewSource.View.MoveCurrentToFirst();            
 
             var menu = new Menu();
             NavigationService.Navigate(menu);
 
-            var st = sushiOrderDBDataSet.商品テーブル.Where(x => x.Status.Contains("販売中"));
+            
 
             #region 写真挿入
             var drv1 = (DataRow)sushiOrderDBDataSet.商品テーブル.Rows[0];
@@ -469,6 +661,7 @@ namespace Uobei
             sushiOrderDBDataSet商品テーブルTableAdapter.Fill(sushiOrderDBDataSet.商品テーブル);
             System.Windows.Data.CollectionViewSource 商品テーブルViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("商品テーブルViewSource")));
             商品テーブルViewSource.View.MoveCurrentToFirst();
+
             var menu = new Menu();
             NavigationService.Navigate(menu);
 
@@ -542,69 +735,5 @@ namespace Uobei
             }
             #endregion
         }
-        #endregion
-
-        #region マイナス
-        private void Dec1_Click(object sender, RoutedEventArgs e)
-        {
-            num = 0;
-            count = 0;
-            try
-            {
-                foreach (var item in Order.OrderList)
-                {
-                    num += item.Value;
-                }
-                if (num > 0)
-                {
-                    Order.OrderDec(ListBox1.SelectedItem.ToString());
-                    ListDec();
-                    foreach (var item in Order.OrderList)
-                    {
-                        count += item.Value;
-                    }
-                    count6.Content = count;
-                }
-            }
-            catch (Exception ex)
-            {
-                //MessageBox.Show(ex.ToString());
-            }
-
-        }
-        #endregion
-
-        #region プラス
-        private void Inc1_Click(object sender, RoutedEventArgs e)
-        {
-            num = 0;
-            count = 0;
-            try
-            {
-                foreach (var item in Order.OrderList)
-                {
-                    num += item.Value;
-                }
-                if (num < 4)
-                {
-                    ListBox2.Items.Add(Order.OrderAdd(ListBox1.SelectedItem.ToString()));
-                    ListAdd();
-                    foreach (var item in Order.OrderList)
-                    {
-                        count += item.Value;
-                    }
-                    count6.Content = count;
-                }
-                else
-                {
-                    MessageBox.Show("一度に4皿まで注文できます。");
-                }
-            }
-            catch (NullReferenceException)
-            {
-                return;
-            }
-        }
-        #endregion
     }
 }

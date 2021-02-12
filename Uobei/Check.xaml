@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Uobei"
         mc:Ignorable="d"
-        Title="Cash" Height="450" Width="800">
+        d:DesignHeight="450" d:DesignWidth="800"
+        Title="Cash">
     <Page.Resources>
         <local:SushiOrderDBDataSet x:Key="sushiOrderDBDataSet"/>
         <CollectionViewSource x:Key="注文情報ViewSource" Source="{Binding 注文情報, Source={StaticResource sushiOrderDBDataSet}}"/>
@@ -30,7 +31,7 @@
         <Label Grid.Row="1" VerticalAlignment="Center" x:Name="Number" Width="114" Height="50" FontSize="30" HorizontalAlignment="Center" Margin="405,13,273,21" Background="Black" Foreground="White" ContentStringFormat="###,###" HorizontalContentAlignment="Right"/>
         <Label Grid.Row="1" VerticalAlignment="Center" x:Name="en" Content="円" Width="42" Height="50" FontSize="30" HorizontalAlignment="Center" Margin="519,13,231,21" Background="White"/>
         
-        <DataGrid x:Name="OrderListDataGrid" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="10,10,235,0" RowDetailsVisibilityMode="VisibleWhenSelected" AutoGenerateColumns="False" Loaded="OrderListDataGrid_Loaded">
+        <DataGrid x:Name="OrderListDataGrid" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="10,10,215,0" RowDetailsVisibilityMode="VisibleWhenSelected" AutoGenerateColumns="False" Loaded="OrderListDataGrid_Loaded" FontSize="20" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="product_nameColumn" Binding="{Binding Product_name}" Header="商品名" Width="4*"/>
                 <DataGridTextColumn x:Name="quantityColumn" Binding="{Binding Quantity}" Header="数量" Width="1*"/>

@@ -7,15 +7,31 @@
         mc:Ignorable="d"
         Title="DB" Height="450" Width="800" Loaded="Window_Loaded">
     <Window.Resources>
+
         <local:SushiOrderDBDataSet x:Key="sushiOrderDBDataSet"/>
-        <CollectionViewSource x:Key="注文情報ViewSource" Source="{Binding 注文情報, Source={StaticResource sushiOrderDBDataSet}}"/>
         <CollectionViewSource x:Key="商品テーブルViewSource" Source="{Binding 商品テーブル, Source={StaticResource sushiOrderDBDataSet}}"/>
+        <CollectionViewSource x:Key="注文情報ViewSource" Source="{Binding 注文情報, Source={StaticResource sushiOrderDBDataSet}}"/>
+
     </Window.Resources>
     <Grid DataContext="{StaticResource 注文情報ViewSource}">
-        <DataGrid x:Name="注文情報DataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="353,75,39,144" RowDetailsVisibilityMode="VisibleWhenSelected">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="14*"/>
+            <ColumnDefinition Width="19*"/>
+        </Grid.ColumnDefinitions>
+        <DataGrid x:Name="商品テーブルDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="0,20,392,199" RowDetailsVisibilityMode="VisibleWhenSelected" Grid.ColumnSpan="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="product_idColumn" Binding="{Binding Product_id}" Header="Product id" IsReadOnly="True" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="typeColumn" Binding="{Binding Type}" Header="Type" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="nameColumn" Binding="{Binding Name}" Header="Name" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="priceColumn" Binding="{Binding Price}" Header="Price" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="pictureColumn" Binding="{Binding Picture}" Header="Picture" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="statusColumn" Binding="{Binding Status}" Header="Status" Width="SizeToHeader"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid x:Name="注文情報DataGrid" AutoGenerateColumns="False" Grid.Column="1" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="64,167,-8,52" RowDetailsVisibilityMode="VisibleWhenSelected">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="iDColumn" Binding="{Binding ID}" Header="ID" IsReadOnly="True" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="product_idColumn" Binding="{Binding Product_id}" Header="Product id" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="product_idColumn1" Binding="{Binding Product_id}" Header="Product id" Width="SizeToHeader"/>
                 <DataGridTextColumn x:Name="starttimeColumn" Binding="{Binding Starttime}" Header="Starttime" Width="SizeToHeader"/>
                 <DataGridTextColumn x:Name="orderColumn" Binding="{Binding Order}" Header="Order" Width="SizeToHeader"/>
                 <DataGridTextColumn x:Name="offerColumn" Binding="{Binding Offer}" Header="Offer" Width="SizeToHeader"/>
@@ -23,7 +39,7 @@
                 <DataGridTextColumn x:Name="product_nameColumn" Binding="{Binding Product_name}" Header="Product name" Width="SizeToHeader"/>
                 <DataGridTextColumn x:Name="quantityColumn" Binding="{Binding Quantity}" Header="Quantity" Width="SizeToHeader"/>
                 <DataGridTextColumn x:Name="sum_priceColumn" Binding="{Binding Sum_price}" Header="Sum price" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="statusColumn" Binding="{Binding Status}" Header="Status" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="statusColumn1" Binding="{Binding Status}" Header="Status" Width="SizeToHeader"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

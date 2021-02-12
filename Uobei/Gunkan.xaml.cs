@@ -52,7 +52,7 @@ namespace Uobei
         //軍艦から握りへ
         private void GunNigiri_Click(object sender, RoutedEventArgs e)
         {
-            var nigiri = new Nigiri();
+            var nigiri = new Menu();
             NavigationService.Navigate(nigiri);
         }
 
@@ -87,7 +87,7 @@ namespace Uobei
         //軍艦から前へ
         private void GunFront_Click(object sender, RoutedEventArgs e)
         {
-            var nigiri = new Nigiri();
+            var nigiri = new Menu();
             NavigationService.Navigate(nigiri);
         }
 

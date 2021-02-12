@@ -51,7 +51,7 @@ namespace Uobei
         //デザートから握りへ
         private void DezartNigiri_Click(object sender, RoutedEventArgs e)
         {
-            var nigiri = new Nigiri();
+            var nigiri = new Menu();
             NavigationService.Navigate(nigiri);
         }
 
@@ -93,7 +93,7 @@ namespace Uobei
         //デザートから次へ
         private void DezartBack_Click(object sender, RoutedEventArgs e)
         {
-            var nigiri = new Nigiri();
+            var nigiri = new Menu();
             NavigationService.Navigate(nigiri);
         }
 

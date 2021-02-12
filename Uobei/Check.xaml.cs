@@ -68,7 +68,7 @@ namespace Uobei
             注文情報ViewSource.View.MoveCurrentToFirst();
 
             //合計金額
-            Number.Content = sushiOrderDBDataSet.注文情報.Select(n => n.Sum_price).Sum();          
+            Number.Content = sushiOrderDBDataSet.注文情報.Select(n => n.Sum_price).Sum();
         }
         #endregion
     }

@@ -25,5 +25,18 @@ namespace Uobei
             }
             return OrderList;
         }
+
+        public static Dictionary<string, int> OrderDec(string neta)
+        {
+            if (OrderList.ContainsKey(neta))
+            {
+                //既に登録されている場合
+                OrderList[neta]--;
+
+            }
+            return OrderList;
+        }
+
+
     }
 }
